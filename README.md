@@ -115,6 +115,16 @@ npm run db:studio     # Open Drizzle Studio
 
 ## Deployment
 
+### One-line deploy
+
+With your environment variables already set (see `.env.example`), deploy the entire platform with a single command:
+
+```bash
+./deploy.sh
+```
+
+This runs `npm ci`, pushes the Drizzle schema, seeds initial data, builds the Next.js app, and starts the production server.
+
 ### Vercel + Render/Fly.io
 
 1. Push to GitHub
