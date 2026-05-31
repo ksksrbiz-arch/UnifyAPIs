@@ -61,7 +61,7 @@ export const userApisRouter = createTRPCRouter({
           and(eq(ua.id, input.userApiId), eq(ua.userId, userId)),
       });
 
-      if (!userApi) throw new TRPCError({ code: 'NOT_FOUND', message: 'User API not found in your library' });
+      if (!userApi) throw new TRPCError({ code: 'NOT_FOUND', message: 'API not found in your library' });
 
       await ctx.db
         .update(userApis)

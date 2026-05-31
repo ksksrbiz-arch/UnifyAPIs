@@ -4,13 +4,6 @@ import { auth } from '@/lib/auth';
 
 export const dynamic = 'force-dynamic';
 
-export async function POST(req: Request) {
-  const session = await auth.api.getSession({ headers: req.headers });
-
-  if (!session?.user) {
-    return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
-  }
-
 let stripeClient: Stripe | null = null;
 function getStripe() {
   if (!stripeClient) {
@@ -20,6 +13,13 @@ function getStripe() {
   }
   return stripeClient;
 }
+
+export async function POST(req: Request) {
+  const session = await auth.api.getSession({ headers: req.headers });
+
+  if (!session?.user) {
+    return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
+  }
 
   try {
     const checkoutSession = await getStripe().checkout.sessions.create({

@@ -31,7 +31,7 @@ export default function DashboardPage() {
         <h1 className="text-2xl font-bold">
           Welcome back, {session?.user.name ?? session?.user.email?.split('@')[0]}!
         </h1>
-        <p className="text-muted-foreground mt-1">{"Here's your API usage overview."}</p>
+        <p className="text-muted-foreground mt-1">Here&apos;s your API usage overview.</p>
       </div>
 
       {/* Stats */}
